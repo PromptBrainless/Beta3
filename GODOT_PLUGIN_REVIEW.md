@@ -1,23 +1,49 @@
 # Godot archive review
 
-**Status: initial shortlist, not an installation or compatibility sign-off.** This repository currently has 117 ZIP archives and a newly initialized Godot project, but no plugins have been integrated or smoke-tested in it. The proposed target is a 2D RPG using Godot 4.7, based on the strongest directly verified template/tileset compatibility in the supplied archives. Every shortlisted addon still needs to be tested together in the project before adoption.
+**Status: implementation started; runtime validation still pending.** This repository has 117 ZIP archives and targets a 2D RPG using Godot 4.7. Maaack's selected template and its bundled menu, scene-loader, music, and UI sound plugins now form the project base; they have not yet been smoke-tested in this project. Other shortlisted addons remain candidates, not installed dependencies.
 
 The review uses archive names and included manifests, READMEs, project files and license files where available. `awesome-godot` is used as a discovery/curation signal, not as proof of compatibility or quality. The upstream README at <https://github.com/Calinou/awesome-godot> was checked on 2026-10-01; it currently lists Maaack's Game Template, Questify, and GUT. The generic `sindresorhus/awesome` list is not a Godot plugin audit.
 
-The Drive folder linked in `/home/runner/work/Beta3/Beta3/Google drive with all godot foundations` could not be read in this environment. Its contents are **not** included in the 117-archive count or in either decision list below. No plugins have been copied into the new starter project. The “keep” list is the proposed base to test, not a claim that the tools have already been integrated.
+The Drive folder linked in `/home/runner/work/Beta3/Beta3/Google drive with all godot foundations` could not be read in this environment. Its contents are **not** included in the 117-archive count or in either decision list below.
+
+## Content overview
+
+The archive collection is a library to draw from, not one combined project. Keep shipped game content, runtime systems, and editor-only helpers separate:
+
+| Type | Collected examples | Use in this project |
+| --- | --- | --- |
+| Game content | `1_Free_Pack.zip`, `MorbidEmber_pixel-RPG-starter-pack_v1.1-2.zip`, `GoldenSkullArt_2D_Iso_Free_Starter_Bundle-2.zip`, `Card_Game_GFX.zip`, `natural_lut-2.zip` | Art and effects are not runtime systems. Do not use/redistribute packs until art direction and asset rights are verified. |
+| Runtime/game systems | `dialogic-*.zip`, `Questify-1.6.0.zip`, `p0nni_inventory_system-*.zip`, `godot-statecharts-*.zip`, `gohud-1.2.1.zip`, `eMessagePipe-*.zip` | Potential dialogue, quest, inventory, state, HUD, or platform functionality. Select at most one implementation per need and test compatibility/export implications before adoption. |
+| Editor authoring tools | `BetterTileEditor-0.1.0.zip`, `AutotileEditor-*.zip`, `WorldEditor-*.zip`, `Godot4DialogueEditor-*.zip`, `Godot4QuestEditor-*.zip`, sprite/graphics editor archives | These alter content-authoring workflows; they are not automatically shipped-game dependencies. |
+| Editor comfort and QA | `Gut-9.6.1.zip`, `input-audit-lite-*.zip`, `loc-audit-lite-*.zip`, editor themes, notes, external-editor and logging archives | Keep tools separate from runtime. GUT is the strongest test candidate; other utilities need a concrete workflow need. |
+| Alternate templates / bundled frameworks | `TakinGodotTemplate-master.zip`, `godot-game-template-main (1).zip`, `godot-template-4.x.zip`, `fuse-v1.1.0.zip`, `Ruake-*.zip` | Do not stack templates/frameworks. Maaack is the single selected base; overlapping alternatives remain unintegrated. |
+
+### Verified candidate details
+
+| Candidate | Compatibility and useful detail | License / decision |
+| --- | --- | --- |
+| Maaack's Game Template (`Godot-Game-Template-main.zip`) | README says Godot 4.7 (4.4+ compatible); includes menus, input/settings, pause, credits, and scene loading. Its bundled Scene Loader documents `SceneLoader.load_scene(path)`. | MIT; adopted as the sole project base, not yet runtime-verified. |
+| BetterTileEditor (`BetterTileEditor-0.1.0.zip`) | Official page documents Godot 4.6+ and testing on 4.6/4.7; patch/forest/scatter and multi-tile object workflows. | GPL-3.0-or-later; defer until tile authoring is needed and obligations accepted. |
+| Questify (`Questify-1.6.0.zip`) | Official project page describes graph quests, signals and condition-query integration; default condition polling can be disabled. | MIT; defer. The first quest is a native implementation pending runtime tests. |
+| P0nni Inventory System (`p0nni_inventory_system-*.zip`) | Data-driven Resources and editor docks; setup expects an `Inventories` autoload. | MIT; defer until item/inventory model is confirmed. |
+| Godot State Charts (`godot-statecharts-*.zip`) | State chart nodes/signals and debug view are available for Godot 4. | MIT; optional, not needed for the first quest flow. |
+| GUT (`Gut-9.6.1.zip`) | GUT 9.x targets Godot 4 and provides GDScript unit testing. | MIT; development-only candidate; Godot is not available here to validate it. |
+| gohud (`gohud-1.2.1.zip`) | Its manifest says officially supported and tested on Godot 4.7+, with HUD, modal, dialog, and quick-slot widgets. | MIT; optional UI candidate, not integrated. |
+
+The template documents that its sample `GlobalState` save format uses `.tres` resources and warns against shared/cloud saves because resource files can contain scripts. The RPG slice stores its own quest, inventory, and position data as versioned JSON in `user://beta3_save.json`; this does not replace the template's independent menu/state behavior.
 
 ## Keep for the first foundation prototype
 
 | Archive | Why keep it | Gate before adoption |
 | --- | --- | --- |
-| `Godot-Game-Template-main.zip` | Maaack's template supplies menus, options, pause, credits, scene loading and an example. Its README says Godot 4.7 (4.4+ compatible); it is also listed in `awesome-godot`. This is the best supplied starting point rather than building generic project plumbing first. | Create a clean project from it and verify the complete project opens, runs and exports under the chosen Godot release. |
+| `Godot-Game-Template-main.zip` | Maaack's template supplies menus, options, pause, credits, scene loading and an example. Its README says Godot 4.7 (4.4+ compatible); it is also listed in `awesome-godot`. | Integrated as the sole template base; verify opening/menu/scene loading and export under the chosen Godot release. |
 | `BetterTileEditor-0.1.0.zip` | Relevant 2D terrain/tile authoring tools; its README explicitly says Godot 4.6+ and tested on 4.6/4.7. | Test on the selected engine release and verify it suits our map format and workflow. GPL-3.0-or-later obligations must be acceptable. |
 | `Questify-1.6.0.zip` | Godot 4 graph-based quest editor/runtime, directly relevant to RPG authoring and listed in `awesome-godot`. | Build a small quest in a test project; confirm save/load and runtime APIs before tying it to game data. |
 | `godot-statecharts-0.22.5.zip` | A focused state-chart library is a plausible reusable building block for event/NPC flow, rather than hand-rolling every state transition. | Confirm engine compatibility, license and actual need in a vertical slice; do not make it a mandatory dependency without that test. |
 | `p0nni_inventory_system-0db124e013f07e062f0f4428ca027064e912f60e.zip` | The included README describes a data-driven inventory using Godot Resources and separating logic from UI, a useful match for RPG item data. | Verify Godot version, code/license, save/load behavior and API fit; it is a candidate, not yet the inventory design. |
 | `Gut-9.6.1.zip` | Unit-test tooling supports a maintainable foundation; GUT is listed in `awesome-godot`. | Confirm compatibility with the selected Godot version and use it only for development/test workflows. |
 
-These choices intentionally do **not** add multiple implementations of the same feature. Start with the template plus only the few RPG tools needed for a playable slice; add more only when a concrete requirement justifies them.
+These choices intentionally do **not** add multiple implementations of the same feature. The initial playable RPG loop currently uses native GDScript for quest state and JSON persistence. Add an RPG plugin only when a concrete requirement justifies it.
 
 ## Do not use in the first foundation
 
@@ -162,5 +188,6 @@ These choices intentionally do **not** add multiple implementations of the same 
 
 1. Confirm that Godot 4.7 and desktop-first 2D RPG are acceptable assumptions; Android/Web would change native-extension and UI review.
 2. Obtain a readable Drive export/direct download and repeat the same archive, license and compatibility checks for those plugins.
-3. Start from the selected template in a clean Godot project, then test the tile editor, Questify, state charts, inventory candidate and GUT one at a time.
-4. Make the final keep/drop decision only after a playable vertical slice (walk a map, trigger an event/dialogue, update a quest/inventory, save/load, test, export) works.
+3. With Godot 4.7, import and run the integrated template project; verify the opening/menu flow and that starting a game loads `scenes/world.tscn`.
+4. Play-test movement and NPC collision, accept Mira's quest, gather three berries, claim the reward, then restart and verify F5/F9 save/load behavior.
+5. Only then test a needed authoring/runtime addon at a time (for example BetterTileEditor for map authoring); check its license, engine support, interactions, and export before adoption.

@@ -6,7 +6,7 @@ class_name RPGPlayer
 var movement_enabled := true
 
 const WORLD_MIN := Vector2(24, 24)
-const WORLD_MAX := Vector2(936, 520)
+const WORLD_MAX := Vector2(1896, 1064)
 
 
 func _physics_process(_delta: float) -> void:

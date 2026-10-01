@@ -1,29 +1,25 @@
 # Beta3 RPG
 
-A Godot 4.7 2D RPG starter project. The first playable slice is intentionally
-small: move around a placeholder town, speak to the villager, and view a
-dialogue. It uses built-in Godot nodes and GDScript only; the collected addon
-archives have not been installed or treated as trusted project dependencies.
+A Godot 4.7 2D RPG starter built on [Maaack's Game Template](https://github.com/Maaack/Godot-Game-Template). The template provides the opening flow, main/options/pause menus, settings, audio controllers, and asynchronous scene loading. Its example game levels remain in the project but are not combined with this RPG's gameplay.
 
-## Open and run
+## Run
 
-Open this repository's root directory in Godot 4.7, then run the project (F6/F5
-or the Run Project button). The main scene is
-`/home/runner/work/Beta3/Beta3/scenes/world.tscn`.
+Open this repository root in Godot 4.7 and run the project. The main scene opens the template intro and menu; starting a game loads the RPG world.
 
-## Controls
+## Play
 
 - Move: WASD or arrow keys
-- Talk / close dialogue: E
+- Talk / collect: E
+- Save: F5
+- Load: F9
 
-## Project layout
+Speak to Mira, collect three berries in the eastern woods, then return to receive 10 gold. Progress and player position are written as JSON to `user://beta3_save.json`.
 
-- `project.godot` — Godot project settings and main scene.
-- `scenes/world.tscn` — starter town, player, and villager.
-- `scripts/` — movement, interaction, and world presentation.
+## Project contents
 
-The scene currently uses drawn placeholder tiles and character shapes rather
-than external art. The plugins reviewed in
-[`GODOT_PLUGIN_REVIEW.md`](GODOT_PLUGIN_REVIEW.md) remain candidates only;
-install and validate them individually after the Godot version and gameplay
-data model have been confirmed.
+- `scenes/world.tscn` and `scripts/` — the playable RPG slice.
+- `scenes/game/game.tscn` — template game shell and level loading, configured to launch the RPG world.
+- `addons/maaacks_*` — the template's game, scene-loading, music, and UI sound systems.
+- `GODOT_PLUGIN_REVIEW.md` — audit and adoption status of all 117 collected plugin/resource archives.
+
+The archive catalog is not a dependency manifest: only the selected template is integrated. RPG add-ons remain candidates until individually validated for Godot 4.7, licensing, and fit.

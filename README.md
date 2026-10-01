@@ -1,25 +1,51 @@
 # Beta3 RPG
 
-A Godot 4.7 2D RPG starter built on [Maaack's Game Template](https://github.com/Maaack/Godot-Game-Template). The template provides the opening flow, main/options/pause menus, settings, audio controllers, and asynchronous scene loading. Its example game levels remain in the project but are not combined with this RPG's gameplay.
+Ein kleines 2D-RPG in Godot 4.7: Sprich mit Mira, sammle drei Waldbeeren und kehre für deine Belohnung ins Dorf zurück. Das Projekt verbindet diesen spielbaren Ausschnitt mit dem Menü-, Audio- und Szenenlade-System von [Maaack's Godot Game Template](https://github.com/Maaack/Godot-Game-Template).
 
-## Run
+> **Projektstatus:** spielbarer Prototyp. Im Repository sind derzeit keine Git-Tags oder veröffentlichten Releases vorhanden.
 
-Open this repository root in Godot 4.7 and run the project. The main scene opens the template intro and menu; starting a game loads the RPG world.
+## Loslegen
 
-## Play
+1. [Godot 4.7](https://godotengine.org/download/) installieren.
+2. Dieses Repository klonen oder als ZIP herunterladen.
+3. Im Godot-Projektmanager den Projektordner importieren beziehungsweise `project.godot` öffnen.
+4. Das Projekt ausführen. Das Hauptmenü öffnet sich; **Neues Spiel** startet die RPG-Welt.
 
-- Move: WASD or arrow keys
-- Talk / collect: E
-- Save: F5
-- Load: F9
+## Spielen
 
-Speak to Mira, collect three berries in the eastern woods, then return to receive 10 gold. Progress and player position are written as JSON to `user://beta3_save.json`.
+| Aktion | Taste |
+| --- | --- |
+| Bewegen | W, A, S, D oder Pfeiltasten |
+| Mit Mira sprechen / Beere sammeln | E |
+| Spielstand speichern | F5 |
+| Spielstand laden | F9 |
 
-## Project contents
+Sprich im Dorf mit Mira, folge dem Weg nach Osten und sammle die drei Beeren im Wald. Kehre zu Mira zurück, um den Auftrag abzuschliessen und 10 Gold zu erhalten. Der Spielstand wird lokal unter `user://beta3_save.json` gespeichert; er wird nicht mit dem GitHub-Repository synchronisiert.
 
-- `scenes/world.tscn` and `scripts/` — the playable RPG slice.
-- `scenes/game/game.tscn` — template game shell and level loading, configured to launch the RPG world.
-- `addons/maaacks_*` — the template's game, scene-loading, music, and UI sound systems.
-- `GODOT_PLUGIN_REVIEW.md` — audit and adoption status of all 117 collected plugin/resource archives.
+## Dokumentation
 
-The archive catalog is not a dependency manifest: only the selected template is integrated. RPG add-ons remain candidates until individually validated for Godot 4.7, licensing, and fit.
+- [Dokumentationsübersicht](docs/README.md)
+- [Spielanleitung](docs/wiki/Spielanleitung.md)
+- [Technische Architektur](docs/wiki/Technische-Architektur.md)
+- [Spielstandformat](docs/wiki/Spielstand.md)
+- [Entwickeln und beitragen](CONTRIBUTING.md)
+- [GitHub-Wiki, Tags und Releases einrichten](docs/GITHUB.md)
+- [Release- und Tag-Ablauf](docs/wiki/Releases-und-Tags.md)
+- [Plugin-Audit](GODOT_PLUGIN_REVIEW.md)
+- [Drittanbieter- und Asset-Quellen](ATTRIBUTION.md)
+
+Die Dateien unter `docs/wiki/` sind als Wiki-Inhalte vorbereitet und lassen sich in ein GitHub-Wiki übernehmen. Diese Repository-Änderung erstellt oder konfiguriert das separate GitHub-Wiki selbst nicht.
+
+## Projektaufbau
+
+- `project.godot` — Godot-Konfiguration, Autoloads und Eingaben
+- `scenes/world.tscn`, `scenes/berry.tscn`, `scripts/` — spielbarer RPG-Ausschnitt
+- `scenes/opening/`, `scenes/menus/`, `scenes/game/` — Startablauf und Template-Spielhülle
+- `addons/maaacks_*` — integrierte Menüs, Szenenladung sowie Audio-Controller
+- `docs/wiki/` — vorbereitete Seiten für das GitHub-Wiki
+
+Die Beispiel-Level des Templates sind im Projekt enthalten, werden aber nicht als RPG-Spielinhalt verwendet. Weitere Godot-Plugins und Plugin-Archive sind nicht automatisch Projektabhängigkeiten; siehe [Plugin-Audit](GODOT_PLUGIN_REVIEW.md).
+
+## Lizenz und Hinweise
+
+Beachte `LICENSE.txt` sowie die jeweiligen Lizenz- und Attributionsdateien der Add-ons und Assets. Die Quellen der übernommenen Bestandteile sind in [ATTRIBUTION.md](ATTRIBUTION.md) dokumentiert.

@@ -1,0 +1,6 @@
+* [Home](Home)
+* [Spielanleitung](Spielanleitung)
+* [Technische Architektur](Technische-Architektur)
+* [Spielstand](Spielstand)
+* [Entwicklung](Entwicklung)
+* [Releases und Tags](Releases-und-Tags)

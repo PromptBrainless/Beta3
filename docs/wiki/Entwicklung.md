@@ -15,7 +15,7 @@ Das Projekt verwendet GDScript und Godot-Szenen. Eine externe Paketinstallation 
 4. Das Projekt ausführen; Startszene ist `scenes/opening/opening.tscn`.
 5. Menü, RPG-Welt, Mira-Quest, alle drei Beeren sowie manuelles und automatisches Speichern prüfen.
 
-Es ist im Repository kein eigenständiges Test- oder CI-System für den RPG-Ablauf dokumentiert. Verifiziere Gameplay-Änderungen daher durch einen manuellen Durchlauf und nenne die ausgeführten Prüfungen im Pull Request.
+Es gibt kein CI-System für den RPG-Ablauf. Für den Quest-Loop existiert ein Headless-Test unter `tests/quest_loop_test.tscn` (Skript `tests/quest_loop_test.gd`): `run/main_scene` in `project.godot` zeitweise auf diese Szene setzen und das Projekt mit `godot --headless` starten; der Test deckt Bewegung, Kollision, Dialog, Questfortschritt sowie Speichern/Laden ab und endet mit `ALL CHECKS PASSED` oder einer Fehlerliste. Zusätzlich Gameplay-Änderungen durch einen manuellen Durchlauf verifizieren und die ausgeführten Prüfungen im Pull Request nennen.
 
 ## Wo Änderungen hingehören
 

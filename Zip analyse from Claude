@@ -1,0 +1,38 @@
+Ich habe alle ZIPs geöffnet und ihre `plugin.cfg`, READMEs, Godot-Versionen und Lizenzdateien gelesen. Es sind **117 ZIPs**, nicht 150. Zusammen mit README und 3 `.mht`-Dateien sind es 122 Einträge.
+
+**A) Kern fürs Spiel (ca. 45)**
+- **Dialog:** Dialogic (am vollständigsten), NodeDialogueEditor, Godot4DialogueEditor
+- **Quests:** Questify (Graph-Editor), Godot4QuestEditor
+- **Inventar und Skills:** p0nni_inventory_system, Godot4InventoryEditor, SkillEditor
+- **Logik:** godot-statecharts (plus guard-editor)
+- **Welt und Orte:** location-graph-editor, WorldEditor, AutotileEditor (**RPG-Maker-Tilesets → Godot**), BetterTileEditor, GLE2D (nur Platformer)
+- **UI:** gohud, StyleBoxFancy, UI_Builder, simple-gui-transitions, MarkdownLabel, AutoSizeText, godotx_health_bar
+- **Menüs und Settings:** Maaack Game Template, Options-Menus, Input-Remapping, sweet-settings, settings_menu_lite, app_settings
+- **Daten:** zwei JSON-Editoren, CSVEdit
+- **Test und Debug:** Gut, log.gd, die beiden Debug-Menüs, input-audit, loc-audit
+- **Grafik:** 1_Free_Pack (HUD, Icons, Emojis), Card_Game_GFX (Karten, Chips, Würfel), MorbidEmber Pixel-RPG-Pack (MIT), GoldenSkull 2D Iso, natural_lut
+- **Sprite-Werkzeuge:** Godoxel, HeinDraw, Sprite Painter, SpriteForge, Sprite Editor, Sprite2D Rect Editor, Polygon2D Editor
+
+**B) Editor-Komfort (ca. 35)**
+Nützlich, aber nicht spielrelevant: Notes-Dock, Plugin Refresher, Multi Scene Editor, Open Editors, Editor-Backgrounds, Fancy Sounds, Smart Editor, gdterm, Icon Explorer und 6 Plugins nur für externe Editoren.
+
+**C) Aussortieren oder Vorsicht**
+- **Duplikate:**
+  - Ruake enthält bereits Gut.
+  - Der Theme Explorer liegt dreimal vor.
+  - Editor-Image gibt es zweimal.
+  - Es gibt 5 Lokalisierungs-Editoren.
+  - Godot4QuestEditor bündelt offenbar den DialogueEditor mit.
+- **Falsch benannte ZIPs:**
+  - BBCodeEdit enthält in Wirklichkeit AnyIcon.
+  - localization-editor-g3 enthält Plugin Refresher.
+  - Godello enthält Open External Editor.
+- **Veraltet:** Snippets Dock (Godot 3) und VisualScript Extension (VisualScript gibt es in Godot 4 nicht mehr).
+- **Passt nicht:**
+  - 3D-Werkzeuge: Convex3D, CSG, Mesh Origin, Node2Tile, GDDraw, Material Editor, GeoBuilder, terrabrush, MobileTycoon.
+  - Nano-Syntax und clipboard-narrator.
+- **Export-Risiko:** C#- und GDExtension-Plugins (eMessagePipe, terrabrush, gdext_qoi, gdterm) machen Android- und Web-Export schwieriger.
+- **Versionen:** Maaack Template, Antz Debug und gohud verlangen **Godot 4.7+**. Die meisten übrigen Plugins laufen ab 4.0 bis 4.3.
+- **Lizenzen:** Die Lizenzdateien liegen meist bei, ich habe sie nicht einzeln geprüft. **Card_Game_GFX und natural_lut haben keine Lizenzdatei.**
+
+Soll ich daraus eine Shortlist für dein Spiel bauen? Dafür bräuchte ich das Genre und die Zielplattform, vor allem ob Android oder Web dabei ist.

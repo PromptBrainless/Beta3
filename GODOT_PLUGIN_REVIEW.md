@@ -2,6 +2,8 @@
 
 **Status: implementation started; runtime validation still pending.** This repository has 117 ZIP archives and targets a 2D RPG using Godot 4.7. Maaack's selected template and its bundled menu, scene-loader, music, and UI sound plugins now form the project base; they have not yet been smoke-tested in this project. Other shortlisted addons remain candidates, not installed dependencies.
 
+All 117 archives were fully extracted and re-inspected (plugin.cfg manifests, READMEs and license files read directly) to verify the claims below; this pass confirmed the prior findings and corrected two bundle-content details (BBCodeEdit and Godot4QuestEditor, noted in their table rows). `addons/maaacks_game_template/plugin.cfg` in this project reports version 1.7.1, matching `Godot-Game-Template-main.zip`.
+
 The review uses archive names and included manifests, READMEs, project files and license files where available. `awesome-godot` is used as a discovery/curation signal, not as proof of compatibility or quality. The upstream README at <https://github.com/Calinou/awesome-godot> was checked on 2026-10-01; it currently lists Maaack's Game Template, Questify, and GUT. The generic `sindresorhus/awesome` list is not a Godot plugin audit.
 
 The Drive folder linked in `/home/runner/work/Beta3/Beta3/Google drive with all godot foundations` could not be read in this environment. Its contents are **not** included in the 117-archive count or in either decision list below.
@@ -56,7 +58,7 @@ These choices intentionally do **not** add multiple implementations of the same 
 | `AutotileEditor-8e541f0ffeefccead6d428c4073deaea902d9a9b.zip` | Its README explicitly targets Godot 3.2. RPG Maker tileset conversion is useful, but this archive is not a plug-in-and-play Godot 4.7 foundation; revisit only if ported or tested. |
 | `dialogic-b4e38a45a86a05427d26a60fa8dadaab1e1b36f3.zip` | The included README badges Godot 3.4/3.5 and its plugin version is 1.5.1. Do not mistake the current Dialogic project listed in `awesome-godot` for proof that this older archive supports Godot 4.7. |
 | `Godot4DialogueEditor-36de4c3a26733f4fe5dd3e906a13bbbf250a507b.zip` | README says it was ported for Godot 4 RC1 (version 0.0.9); its dialogue scope overlaps other candidates and is an old pre-release-era port. |
-| `Godot4QuestEditor-1af04bd094911c51c531d72af5645d4bf1f0f0a4.zip` | Overlaps selected Questify and bundles a DialogueEditor copy; README describes an early Godot 4 RC1-era release. Avoid duplicate quest/dialogue data models. |
+| `Godot4QuestEditor-1af04bd094911c51c531d72af5645d4bf1f0f0a4.zip` | Overlaps selected Questify and bundles three further editor copies (`dialogue_editor`, `inventory_editor`, `localization_editor`) alongside its own `quest_editor`; README describes an early Godot 4 RC1-era release. Avoid duplicate quest/dialogue/inventory/localization data models. |
 | `NodeDialogueEditor-bd04862044d7b40b393a7405c94266dd5bcdd51c.zip` | Another dialogue graph/editor option; not needed alongside a separately selected dialogue solution, and no engine-version evidence has been established for this archive. |
 | `Godot4InventoryEditor-99f26c3c9b5d9aa16c3ba95da4c2fd620fff1328.zip` | Editor for inventory data duplicates the inventory authoring surface we should first define around the candidate data-driven runtime; defer until the data model is chosen. |
 | `SkillEditor-67d8de17514a74c0d7f99e99e73497c12ad6dd1c.zip` | Specialized skill editor is premature before the combat/skill model is designed; version and license compatibility also need confirmation. |
@@ -87,7 +89,7 @@ These choices intentionally do **not** add multiple implementations of the same 
 | --- | --- |
 | `AutoSaver-for-Godot-e39510848b76a13e2962a1f8a25a2fe31c5780a9.zip` | Editor convenience only; version/behavior should be tested separately and it does not supply RPG runtime features. |
 | `AutoSizeText-0.4.1.zip` | UI convenience; not required for the initial core and can be replaced by native controls if needed. |
-| `BBCodeEdit-e99091cca17954c0d32bb9521de6010e6470425a.zip` | Archive inspection found it is misnamed and contains AnyIcon-related plugin content; defer until identified and needed. |
+| `BBCodeEdit-e99091cca17954c0d32bb9521de6010e6470425a.zip` | Archive inspection confirms it bundles two separate addons: `addons/any_icon.editor` (AnyIcon) and `addons/bbcode_edit.editor` (a genuine BBCode editor); it is not solely a misnamed AnyIcon archive. Defer until an actual BBCode-authoring need and license are confirmed. |
 | `CodeEditorSwitch.zip` | Editor-only workflow convenience, unrelated to shipped game functionality. |
 | `DualEditor-24df39d4e7238121fcdee8b7e9d80f03ac7dc294.zip` | Editor-only alternative scripting surface; not needed to build the game foundation. |
 | `Editor-Image-Plugin-2-4fbac0e303e27aa6e1a970fbf684c5c9c6e8d813.zip` | Editor convenience and duplicated by another Editor-Image archive. |

@@ -17,10 +17,15 @@ func _ready() -> void:
 	villager.dialogue_requested.connect(_on_dialogue_requested)
 
 
-func _process(_delta: float) -> void:
-	if dialogue_panel.visible and Input.is_action_just_pressed("interact"):
+func _unhandled_input(event: InputEvent) -> void:
+	if not event.is_action_pressed("interact", false):
+		return
+
+	if dialogue_panel.visible:
 		dialogue_panel.hide()
 		player.movement_enabled = true
+	else:
+		get_tree().call_group("interactable", "interact", player.global_position)
 
 
 func _draw() -> void:

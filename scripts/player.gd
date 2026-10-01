@@ -16,6 +16,3 @@ func _physics_process(_delta: float) -> void:
 	velocity = direction * move_speed
 	move_and_slide()
 	global_position = global_position.clamp(WORLD_MIN, WORLD_MAX)
-
-	if Input.is_action_just_pressed("interact"):
-		get_tree().call_group("interactable", "interact", global_position)

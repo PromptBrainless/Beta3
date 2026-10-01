@@ -24,8 +24,9 @@ Es ist im Repository kein eigenständiges Test- oder CI-System für den RPG-Abla
 - Spielstandformat: `scripts/rpg_progress.gd` und [Spielstand](Spielstand.md)
 - Eingaben: `project.godot` und `scripts/world.gd`
 - GitHub-Wiki-Material: `docs/wiki/`
+- Plugin- und Asset-Archive: `plugins/archives/` (nur Lager, Integration siehe [plugins/README.md](../../plugins/README.md))
 
-Die `addons/maaacks_*`-Verzeichnisse stammen aus dem Template. Änderungen an übernommenen Add-ons sollten nur erfolgen, wenn sie für das Projekt nötig sind. Der Plugin-Audit und die Attributionsdateien helfen bei der Prüfung von Herkunft, Lizenz und Integrationsstatus.
+Die `addons/maaacks_*`-Verzeichnisse stammen aus dem Template. Änderungen an übernommenen Add-ons sollten nur erfolgen, wenn sie für das Projekt nötig sind. Der Plugin-Audit und die Attributionsdateien helfen bei der Prüfung von Herkunft, Lizenz und Integrationsstatus. Weitere Plugins aus `plugins/archives/` werden stückweise integriert: höchstens ein Plugin pro Schritt, vorher Lizenz und Kompatibilität prüfen, nachher den bestehenden Spielablauf testen und die Entscheidung im Plugin-Audit dokumentieren.
 
 ## Änderungen beitragen
 

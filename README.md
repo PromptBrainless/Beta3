@@ -42,9 +42,10 @@ Die Dateien unter `docs/wiki/` sind als Wiki-Inhalte vorbereitet und lassen sich
 - `scenes/world.tscn`, `scenes/berry.tscn`, `scripts/` — spielbarer RPG-Ausschnitt
 - `scenes/opening/`, `scenes/menus/`, `scenes/game/` — Startablauf und Template-Spielhülle
 - `addons/maaacks_*` — integrierte Menüs, Szenenladung sowie Audio-Controller
+- `plugins/archives/` — gesammelte Plugin- und Asset-Archive, nach Kategorien sortiert (siehe [plugins/README.md](plugins/README.md))
 - `docs/wiki/` — vorbereitete Seiten für das GitHub-Wiki
 
-Die Beispiel-Level des Templates sind im Projekt enthalten, werden aber nicht als RPG-Spielinhalt verwendet. Weitere Godot-Plugins und Plugin-Archive sind nicht automatisch Projektabhängigkeiten; siehe [Plugin-Audit](GODOT_PLUGIN_REVIEW.md).
+Die Beispiel-Level des Templates sind im Projekt enthalten, werden aber nicht als RPG-Spielinhalt verwendet. Weitere Godot-Plugins und Plugin-Archive unter `plugins/archives/` sind nicht automatisch Projektabhängigkeiten; siehe [Plugin-Audit](GODOT_PLUGIN_REVIEW.md).
 
 ## Lizenz und Hinweise
 

@@ -27,3 +27,6 @@ Exports/
 # Plugin specific
 addons/script-ide/
 addons/ef_ds_uids/
+
+# Lokale API-Schluessel (niemals einchecken; Schluessel als GitHub-Secret GD_STORE pflegen)
+api_key.txt

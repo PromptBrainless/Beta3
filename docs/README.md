@@ -4,6 +4,7 @@ Diese Dokumentation beschreibt den aktuellen Stand des Beta3-RPG-Prototyps. Die 
 
 ## Seiten
 
+- [Projektstatus und offene Punkte](Projektstatus.md)
 - [Wiki-Startseite](wiki/Home.md)
 - [Spielanleitung](wiki/Spielanleitung.md)
 - [Technische Architektur](wiki/Technische-Architektur.md)

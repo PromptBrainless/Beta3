@@ -78,7 +78,7 @@ func load_saved_game() -> bool:
 	var stage_value: Variant = data.get("quest_stage", QUEST_NOT_STARTED)
 	var coins_value: Variant = data.get("coins", 0)
 	var position_value: Variant = data.get("player_position", [])
-	if typeof(stage_value) != TYPE_INT or typeof(coins_value) != TYPE_INT:
+	if not _is_integer_number(stage_value) or not _is_integer_number(coins_value):
 		return false
 	if typeof(position_value) != TYPE_ARRAY or position_value.size() != 2:
 		return false
@@ -88,14 +88,23 @@ func load_saved_game() -> bool:
 	var berry_values: Variant = data.get("collected_berries", [])
 	if not berry_values is Array:
 		return false
-	quest_stage = clampi(stage_value, QUEST_NOT_STARTED, QUEST_COMPLETE)
-	coins = maxi(coins_value, 0)
+	quest_stage = clampi(int(stage_value), QUEST_NOT_STARTED, QUEST_COMPLETE)
+	coins = maxi(int(coins_value), 0)
 	collected_berries.clear()
 	for berry_value in berry_values:
-		if typeof(berry_value) == TYPE_INT and berry_value > 0 \
-				and berry_value not in collected_berries:
-			collected_berries.append(berry_value)
+		if _is_integer_number(berry_value) and int(berry_value) > 0 \
+				and int(berry_value) not in collected_berries:
+			collected_berries.append(int(berry_value))
 	saved_player_position = Vector2(float(position_value[0]), float(position_value[1]))
 	has_saved_position = true
 	progress_changed.emit()
 	return true
+
+
+func _is_integer_number(value: Variant) -> bool:
+	if typeof(value) == TYPE_INT:
+		return true
+	if typeof(value) != TYPE_FLOAT:
+		return false
+	var number := float(value)
+	return is_finite(number) and number == floorf(number)

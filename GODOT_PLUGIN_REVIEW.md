@@ -1,10 +1,10 @@
 # Godot archive review
 
-**Status: initial shortlist, not an installation or compatibility sign-off.** This repository currently has 117 ZIP archives and no Godot project to install them into or run smoke tests against. The proposed target is a 2D RPG using Godot 4.7, based on the strongest directly verified template/tileset compatibility in the supplied archives. Every shortlisted addon still needs to be tested together in a fresh project before adoption.
+**Status: initial shortlist, not an installation or compatibility sign-off.** This repository currently has 117 ZIP archives and a newly initialized Godot project, but no plugins have been integrated or smoke-tested in it. The proposed target is a 2D RPG using Godot 4.7, based on the strongest directly verified template/tileset compatibility in the supplied archives. Every shortlisted addon still needs to be tested together in the project before adoption.
 
 The review uses archive names and included manifests, READMEs, project files and license files where available. `awesome-godot` is used as a discovery/curation signal, not as proof of compatibility or quality. The upstream README at <https://github.com/Calinou/awesome-godot> was checked on 2026-10-01; it currently lists Maaack's Game Template, Questify, and GUT. The generic `sindresorhus/awesome` list is not a Godot plugin audit.
 
-The Drive folder linked in `/home/runner/work/Beta3/Beta3/Google drive with all godot foundations` could not be read in this environment. Its contents are **not** included in the 117-archive count or in either decision list below. No plugins have been copied into a project: this repository has no project yet. The “keep” list is the proposed base to test, not a claim that the tools have already been integrated.
+The Drive folder linked in `/home/runner/work/Beta3/Beta3/Google drive with all godot foundations` could not be read in this environment. Its contents are **not** included in the 117-archive count or in either decision list below. No plugins have been copied into the new starter project. The “keep” list is the proposed base to test, not a claim that the tools have already been integrated.
 
 ## Keep for the first foundation prototype
 

@@ -3,8 +3,8 @@ extends Node2D
 const VIEW_SIZE := Vector2(960, 544)
 const TILE_SIZE := 32
 
-@onready var player: CharacterBody2D = $Player
-@onready var villager: Node2D = $Villager
+@onready var player: RPGPlayer = $Player
+@onready var villager: RPGVillager = $Villager
 
 var dialogue_panel: PanelContainer
 var speaker_label: Label

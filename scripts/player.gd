@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name RPGPlayer
+
 @export var move_speed: float = 180.0
 var movement_enabled := true
 

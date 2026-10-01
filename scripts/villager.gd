@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name RPGVillager
+
 signal dialogue_requested(speaker: String, text: String)
 
 @export var speaker_name := "Mira"

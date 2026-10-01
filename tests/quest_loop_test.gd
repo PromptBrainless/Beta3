@@ -1,5 +1,8 @@
 extends Node2D
 
+## Headless-Test für den RPG-Quest-Loop. Aufruf: Hauptszene zeitweise auf
+## res://tests/quest_loop_test.tscn setzen und mit `godot --headless` starten.
+
 var _failures: Array[String] = []
 var _save_dir: String
 
@@ -70,10 +73,7 @@ func _run_tests() -> void:
 	RPGProgress.quest_stage = RPGProgress.QUEST_NOT_STARTED
 	RPGProgress.coins = 0
 	RPGProgress.collected_berries.clear()
-	var loaded := _load_json(saved_json)
-	print("DEBUG json=", saved_json)
-	print("DEBUG loaded=", loaded, " stage=", RPGProgress.get("quest_stage"), " coins=", RPGProgress.get("coins"), " berries=", RPGProgress.get("collected_berries"))
-	_check(loaded, "manual load succeeds")
+	_check(_load_json(saved_json), "manual load succeeds")
 	_check(RPGProgress.quest_stage == RPGProgress.QUEST_COMPLETE, "quest stage restored")
 	_check(RPGProgress.coins == 10, "coins restored")
 	_check(RPGProgress.collected_berries.size() == 3, "berries restored")

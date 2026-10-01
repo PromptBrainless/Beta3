@@ -10,6 +10,7 @@ Diese Dokumentation beschreibt den aktuellen Stand des Beta3-RPG-Prototyps. Die 
 - [Spielstandformat](wiki/Spielstand.md)
 - [Entwicklungsleitfaden](wiki/Entwicklung.md)
 - [Releases und Git-Tags](wiki/Releases-und-Tags.md)
+- [Externe APIs und API-Schlüssel](wiki/Externe-APIs.md)
 - [GitHub-Wiki, Tags und Topics einrichten](GITHUB.md)
 
 ## Hinweise zum Umfang
